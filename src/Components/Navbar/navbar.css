@@ -1,0 +1,11 @@
+.transition-max-height {
+    transition: max-height 0.5s ease-in-out;
+  }
+  @font-face {
+    font-family: Granjona;
+    src: url("../../assets//Granjon-Font/Granjon.otf");
+  }
+  .logo{
+    font-family: Granjona;
+  }
+   

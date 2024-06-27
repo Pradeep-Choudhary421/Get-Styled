@@ -1,0 +1,9 @@
+@font-face {
+  font-family: FuturaBold;
+  src: url("./assets/Futura-1");
+}
+*{
+  font-family: FuturaBold;
+  color: #201A1E;
+}
+ 
