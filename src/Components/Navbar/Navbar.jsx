@@ -13,7 +13,7 @@ const Navbar = () => {
   const [kidlist, setKidList] = useState(false);
 
   const [orderedItem, setOrderedItem] = useState([]);
-  const itemsUrl = "http://localhost:6060/order/getcartItems";
+  const itemsUrl = "https://get-styled-backend.onrender.com/order/getcartItems";
 
   useEffect(() => {
     getItems();
@@ -22,7 +22,7 @@ const Navbar = () => {
     try {
       const response = await axios.get(itemsUrl, {
         headers: {
-          "auth-x-token": document.cookie,
+          "auth-x-token": document.cookie.split("=")[1],
         },
       });
       setOrderedItem(response.data.result);
@@ -53,7 +53,7 @@ const Navbar = () => {
 
   return (
     <>
-      <nav className="flex bg-[#F9F5F0] border-b-2 border-black justify-between px-12 py-5 fixed w-[100%] z-50">
+      <nav className="flex bg-[#F9F5F0] border-b-2 border-black justify-between px-12 py-5 ">
         <div className="logo font-link text-2xl">Get-Styled</div>
         <div className="hidden md:block mr-12">
           <ul className="flex justify-evenly gap-16">

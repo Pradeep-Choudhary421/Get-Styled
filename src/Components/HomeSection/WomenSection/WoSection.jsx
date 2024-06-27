@@ -7,7 +7,7 @@ const WoSection = () => {
     const [womenData, setWomenData] = useState([]);
     const [selectedItem, setSelectedItem] = useState(null);
     const [isModalOpen, setIsModalOpen] = useState(false);
-    const urlforMen = "http://localhost:6060/product/getAllProduct";
+    const urlforMen = "https://get-styled-backend.onrender.com/product/getAllProduct";
   
     useEffect(() => {
       getWomen();

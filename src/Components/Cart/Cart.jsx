@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 
 const Cart = () => {
   const [orderedItem, setOrderedItem] = useState([]);
-  const itemsUrl = "http://localhost:6060/order/getcartItems";
+  const itemsUrl = "https://get-styled-backend.onrender.com/order/getcartItems";
 
   useEffect(() => {
     getItems();
@@ -14,7 +14,7 @@ const Cart = () => {
     try {
       const response = await axios.get(itemsUrl, {
         headers: {
-          "auth-x-token": document.cookie,
+          "auth-x-token": document.cookie.split("=")[1],
         },
       });
       setOrderedItem(response.data.result);

@@ -10,7 +10,7 @@ const Login = () => {
     email: "",
     password: "",
   });
-  const url = "http://localhost:6060/user/login";
+  const url = "https://get-styled-backend.onrender.com/user/login";
   const navigate = useNavigate();
   const dispatch = useDispatch();
 

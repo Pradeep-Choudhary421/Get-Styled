@@ -11,7 +11,7 @@ const SignUp = () => {
     password: "",
   });
 
-  const url = "http://localhost:6060/user/createUser";
+  const url = "https://get-styled-backend.onrender.com/user/createUser";
   const navigate = useNavigate();
 
   const createUser = () => {

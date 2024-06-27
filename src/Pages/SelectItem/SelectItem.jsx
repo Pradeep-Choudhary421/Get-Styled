@@ -4,7 +4,7 @@ import { toast } from "react-toastify";
 const ItemModal = ({ item, onClose }) => {
   if (!item) return null;
 
-  const addToCartUrl = "http://localhost:6060/order/addToCart";
+  const addToCartUrl = "https://get-styled-backend.onrender.com/order/addToCart";
 
   const addToCart = async () => {
     try {

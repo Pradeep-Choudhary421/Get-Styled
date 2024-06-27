@@ -7,7 +7,7 @@ const KidSection = () => {
     const [kidData, setKidData] = useState([]);
     const [selectedItem, setSelectedItem] = useState(null);
     const [isModalOpen, setIsModalOpen] = useState(false);
-    const urlforKids = "http://localhost:6060/product/getAllProduct";
+    const urlforKids = "https://get-styled-backend.onrender.com/product/getAllProduct";
   
     useEffect(() => {
       getKid();
