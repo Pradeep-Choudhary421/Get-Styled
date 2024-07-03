@@ -58,7 +58,7 @@ const KidsBottomWear = () => {
                     <p className="flex justify-start">
                     RS. {item?.ProductPrice} 
                     </p>
-                    <ReactStars count={item?.ProductRating} size={24} activeColor="#ffe500" color="#F9F5F0" />
+                    <ReactStars count={item?.ProductRating} size={24} activeColor="#F9F5F0" color="#F9F5F0" />
                 </div>
               </div>
             ))}

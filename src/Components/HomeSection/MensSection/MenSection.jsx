@@ -63,7 +63,7 @@ const MenSection = () => {
                     <ReactStars
                       count={item?.ProductRating}
                       size={24}
-                      activeColor="#ffe500"
+                      activeColor="#F9F5F0"
                       color="#F9F5F0"
                     />
                   </div>
