@@ -72,7 +72,6 @@ const Cart = () => {
         },
       });
       setOrderedItem(response.data.result);
-      console.log(response.data.result);
     } catch (err) {
       console.log(err);
     }
