@@ -6,12 +6,12 @@ import { toast } from "react-toastify";
 
 const Cart = () => {
   const [orderedItem, setOrderedItem] = useState([]);
-  const itemsUrl = "http://localhost:6060/order/getcartItems";
+  const itemsUrl = "https://get-styled-backend.onrender.com/order/getcartItems";
 
   useEffect(() => {
     getItems();
   }, []);
-  const addToCartUrl = "http://localhost:6060/order/addToCart";
+  const addToCartUrl = "https://get-styled-backend.onrender.com/order/addToCart";
 
   const increaseQt = async (itm) => {
     if(localStorage.getItem("token") != null){
@@ -82,7 +82,7 @@ const Cart = () => {
     if(localStorage.getItem("token") != null){
       try {
         const response = await axios.delete(
-          "http://localhost:6060/order/deletecartItems",
+          "https://get-styled-backend.onrender.com/order/deletecartItems",
           {
             headers: {
               "auth-x-token": localStorage.getItem("token"),

@@ -11,7 +11,7 @@ const SignUp = () => {
     password: "",
   });
 
-  const url = "http://localhost:6060/user/createUser";
+  const url = "https://get-styled-backend.onrender.com/user/createUser";
   const navigate = useNavigate();
 
   const createUser = () => {
@@ -81,7 +81,10 @@ const SignUp = () => {
               className="border-2 rounded-lg px-2 py-2 outline-none"
               onChange={handleTarget}
             />
-            <button type="submit" className="w-5/12 mt-4 rounded-lg py-1 bg-[#000] text-[#FFFFFF] mx-auto flex justify-center border-2 border-2xl">
+            <button
+              type="submit"
+              className="w-5/12 mt-4 rounded-lg py-1 bg-[#000] text-[#FFFFFF] mx-auto flex justify-center border-2 border-2xl"
+            >
               Sign In
             </button>
           </form>

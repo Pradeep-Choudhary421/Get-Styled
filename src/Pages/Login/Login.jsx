@@ -7,25 +7,25 @@ const Login = () => {
     email: "",
     password: "",
   });
-  const url = "http://localhost:6060/user/login";
+  const url = "https://get-styled-backend.onrender.com/user/login";
   const navigate = useNavigate();
 
   const loginUser = () => {
     axios
       .post(url, data)
       .then((res) => {
-        setData({ 
-          email : "",
-          password : "",
+        setData({
+          email: "",
+          password: "",
         });
         navigate("/");
         // console.log(res.data.token)
-        localStorage.setItem("token",res.data.token)
+        localStorage.setItem("token", res.data.token);
         toast.success(res.data.message);
       })
       .catch((err) => {
         toast.error("Invalid Credentials");
-        console.log(err)
+        console.log(err);
       });
   };
 

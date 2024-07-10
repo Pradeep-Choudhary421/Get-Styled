@@ -8,7 +8,8 @@ const MenTopWear = () => {
   const [topwear, setTopwear] = useState([]);
   const [selectedItem, setSelectedItem] = useState(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const urlforFoot = "http://localhost:6060/product/getAllProduct";
+  const urlforFoot =
+    "https://get-styled-backend.onrender.com/product/getAllProduct";
 
   useEffect(() => {
     getTop();
