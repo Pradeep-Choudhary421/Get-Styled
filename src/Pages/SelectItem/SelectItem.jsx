@@ -1,12 +1,13 @@
 import React from "react";
 import axios from "axios";
-import { toast } from "react-toastify"; 
+import { toast } from "react-toastify";
 const ItemModal = ({ item, onClose }) => {
   if (!item) return null;
 
-  const addToCartUrl = "https://get-styled-backend.onrender.com/order/addToCart";
+  const addToCartUrl = "http://localhost:6060/order/addToCart";
 
   const addToCart = async () => {
+
     try {
       const response = await axios.post(
         addToCartUrl,
@@ -16,14 +17,14 @@ const ItemModal = ({ item, onClose }) => {
         },
         {
           headers: {
-            "auth-x-token": document.cookie,
+            "auth-x-token": localStorage.getItem("token"),
           },
         }
-      );
-      
+      )
+
       toast.success("Item added to cart");
     } catch (err) {
-      toast.error("Error adding to cart");
+      toast.info("Login First");
     }
   };
 
@@ -48,10 +49,7 @@ const ItemModal = ({ item, onClose }) => {
               <div className="border-2 flex justify-center w-4/12">M</div>
               <div className="border-2 flex justify-center w-4/12">L</div>
             </div>
-            <button
-              className="mt-4 border-4 py-1 px-4"
-              onClick={addToCart}
-            >
+            <button className="mt-4 border-4 py-1 px-4" onClick={addToCart}>
               Add To Cart
             </button>
           </div>

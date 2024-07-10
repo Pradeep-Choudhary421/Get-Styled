@@ -7,7 +7,7 @@ const KidSection = () => {
     const [kidData, setKidData] = useState([]);
     const [selectedItem, setSelectedItem] = useState(null);
     const [isModalOpen, setIsModalOpen] = useState(false);
-    const urlforKids = "https://get-styled-backend.onrender.com/product/getAllProduct";
+    const urlforKids = "http://localhost:6060/product/getAllProduct";
   
     useEffect(() => {
       getKid();
@@ -51,13 +51,13 @@ const KidSection = () => {
                     />
                   </div>
                   <div className="px-4 py-4">
-                    <h2 className="flex justify-start text-2xl py-3">
+                    <h2 className="flex justify-start text-1xl py-3">
                       {item?.ProductName}
                     </h2>
                     <p className="flex justify-start">
                     RS. {item?.ProductPrice} 
                     </p>
-                    <ReactStars count={item?.ProductRating} size={24} activeColor="#F9F5F0"
+                    <ReactStars count={item?.ProductRating} size={24} activeColor="#ffe500"
                       color="#F9F5F0" />
                   </div>
                 </div>

@@ -7,7 +7,7 @@ const WoSection = () => {
     const [womenData, setWomenData] = useState([]);
     const [selectedItem, setSelectedItem] = useState(null);
     const [isModalOpen, setIsModalOpen] = useState(false);
-    const urlforMen = "https://get-styled-backend.onrender.com/product/getAllProduct";
+    const urlforMen = "http://localhost:6060/product/getAllProduct";
   
     useEffect(() => {
       getWomen();
@@ -34,7 +34,7 @@ const WoSection = () => {
 
     return (
       <>
-        <div className="flex justify-center pt-12 bg-[#F9F5F0]">
+        <div className="flex justify-center pt-24 bg-[#F9F5F0]">
           <h1 className="text-5xl px-8">Trending Women's Garments</h1>
         </div>
         <section className="px-16 py-20 bg-[#F9F5F0]">
@@ -57,7 +57,7 @@ const WoSection = () => {
                     <p className="flex justify-start">
                     RS. {item?.ProductPrice} 
                     </p>
-                    <ReactStars count={item?.ProductRating} size={24} activeColor="#F9F5F0"
+                    <ReactStars count={item?.ProductRating} size={24} activeColor="#ffe500"
                       color="#F9F5F0" />
                   </div>
                 </div>

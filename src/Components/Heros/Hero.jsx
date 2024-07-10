@@ -55,7 +55,7 @@ const SPRING_OPTIONS = {
   };
 
   return (
-    <div className="relative overflow-hidden py-8 bg-[#F9F5F0] ">
+    <div className="relative overflow-hidden py-8 bg-[#F9F5F0] pt-20">
       <motion.div
         drag="x"
         dragConstraints={{

@@ -8,8 +8,7 @@ const KidsTopWear = () => {
   const [topwear, setTopwear] = useState([]);
   const [selectedItem, setSelectedItem] = useState(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const urlforFoot =
-    "https://get-styled-backend.onrender.com/product/getAllProduct";
+  const urlforFoot = "http://localhost:6060/product/getAllProduct";
 
   useEffect(() => {
     getTop();
@@ -43,7 +42,10 @@ const KidsTopWear = () => {
   return (
     <>
       <Navbar />
-      <section className="px-16 py-20 bg-[#F9F5F0]">
+      <section className="px-16 py-20 bg-[#F9F5F0] pt-24">
+        <div className="flex justify-center py-8 text-5xl">
+          Trending Kid's Top Wear
+        </div>
         {topwear.length > 0 ? (
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-6 justify-center gap-6">
             {topwear.map((item, index) => (
@@ -67,7 +69,7 @@ const KidsTopWear = () => {
                   <ReactStars
                     count={item?.ProductRating}
                     size={24}
-                    activeColor="#F9F5F0"
+                    activeColor="#ffe500"
                     color="#F9F5F0"
                   />
                 </div>

@@ -9,7 +9,7 @@ const Home = () => {
   return (
     <>
         <Navbar />
-        <Hero />
+        {/* <Hero /> */}
         <WoSection />
         <MenSection />
         <KidSection />

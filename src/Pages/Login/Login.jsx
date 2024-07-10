@@ -2,44 +2,36 @@ import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import axios from "axios";
-import { useSelector, useDispatch } from "react-redux";
-import { hideLoading, showLoading } from "../../Redux/features/alertSlice";
-import { setUser } from "../../Redux/features/userSlice";
 const Login = () => {
   const [data, setData] = useState({
     email: "",
     password: "",
   });
-  const url = "https://get-styled-backend.onrender.com/user/login";
+  const url = "http://localhost:6060/user/login";
   const navigate = useNavigate();
-  const dispatch = useDispatch();
 
   const loginUser = () => {
-    axios.defaults.withCredentials = true;
-    dispatch(showLoading());
     axios
       .post(url, data)
       .then((res) => {
         setData({ 
-          email: "",
-          password: "",
+          email : "",
+          password : "",
         });
-        dispatch(hideLoading());
         navigate("/");
-        console.log()
+        // console.log(res.data.token)
+        localStorage.setItem("token",res.data.token)
         toast.success(res.data.message);
       })
       .catch((err) => {
-        dispatch(hideLoading());
-        // toast.error(err.data);
         toast.error("Invalid Credentials");
+        console.log(err)
       });
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
     loginUser();
-    dispatch(setUser());
   };
   const handleChange = (e) => {
     setData({

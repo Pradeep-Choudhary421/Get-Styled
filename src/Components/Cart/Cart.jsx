@@ -2,19 +2,73 @@ import React, { useEffect, useState } from "react";
 import Navbar from "../Navbar/Navbar";
 import axios from "axios";
 import { Link } from "react-router-dom";
+import { toast } from "react-toastify";
 
 const Cart = () => {
   const [orderedItem, setOrderedItem] = useState([]);
-  const itemsUrl = "https://get-styled-backend.onrender.com/order/getcartItems";
+  const itemsUrl = "http://localhost:6060/order/getcartItems";
 
   useEffect(() => {
     getItems();
   }, []);
+  const addToCartUrl = "http://localhost:6060/order/addToCart";
+
+  const increaseQt = async (itm) => {
+    if(localStorage.getItem("token") != null){
+    try {
+      const response = await axios.post(
+        addToCartUrl,
+        {
+          productId: itm.product._id,
+          quantity: 1,
+          cartPage: "add",
+        },
+        {
+          headers: {
+            "auth-x-token": localStorage.getItem("token"),
+          },
+        }
+      );
+      toast.success("Quantity Increased");
+      getItems();
+    } catch (err) {
+      toast.error("Error adding to cart");
+      console.log(err);
+    }}
+  };
+  const decreaseQt = async (itm) => {
+    if(localStorage.getItem("token") != null){
+    try {
+      const response = await axios.post(
+        addToCartUrl,
+        {
+          productId: itm.product._id,
+          quantity: 1,
+          cartPage: "remove",
+        },
+        {
+          headers: {
+            "auth-x-token": localStorage.getItem("token"),
+          },
+        }
+      );
+
+      toast.success("Quantity Decreased");
+      getItems();
+    } catch (err) {
+      toast.error("Error adding to cart");
+      console.log(err);
+    }}
+  };
+
+
+
   const getItems = async () => {
+    if(localStorage.getItem("token") != null){
     try {
       const response = await axios.get(itemsUrl, {
         headers: {
-          "auth-x-token": document.cookie.split("=")[1],
+          "auth-x-token": localStorage.getItem("token"),
         },
       });
       setOrderedItem(response.data.result);
@@ -22,27 +76,31 @@ const Cart = () => {
     } catch (err) {
       console.log(err);
     }
+  }
   };
-
-  const handleIncrease = (index) => {
-    const newOrderedItem = [...orderedItem];
-    newOrderedItem[index].quantity += 1;
-    setOrderedItem(newOrderedItem);
-  };
-
-  const handleDecrease = (index) => {
-    const newOrderedItem = [...orderedItem];
-    if (newOrderedItem[index].quantity > 1) {
-      newOrderedItem[index].quantity -= 1;
-      setOrderedItem(newOrderedItem);
+  const handleDeleteCartItem = async (item) => {
+    if(localStorage.getItem("token") != null){
+      try {
+        const response = await axios.delete(
+          "http://localhost:6060/order/deletecartItems",
+          {
+            headers: {
+              "auth-x-token": localStorage.getItem("token"),
+            },
+            data: {
+              productId: item._id,
+            },
+          }
+        );
+        toast.success("Item Deleted");
+        getItems();
+      } catch (err) {
+        console.log(err);
+      }
     }
   };
 
-  const handleRemove = (index) => {
-    const newOrderedItem = [...orderedItem];
-    newOrderedItem.splice(index, 1);
-    setOrderedItem(newOrderedItem);
-    };
+
 
   const getTotalPrice = () => {
     return orderedItem.reduce((total, item) => {
@@ -53,7 +111,7 @@ const Cart = () => {
   return (
     <>
       <Navbar />
-      <section className="bg-[#F9F5F0] antialiased md:py-16">
+      <section className="bg-[#F9F5F0] antialiased py-24 h-[100vh] pt-32">
         <div className="mx-auto max-w-screen-xl px-4 2xl:px-0">
           <h2 className="text-xl sm:text-2xl">Shopping Cart</h2>
           <div className="mt-6 sm:mt-8 md:gap-6 pb-[50vh] 5xl:pb-[20vh] lg:flex lg:items-start xl:gap-8">
@@ -77,7 +135,7 @@ const Cart = () => {
                       <div className="flex items-center justify-between md:order-3 md:justify-end">
                         <div className="flex items-center">
                           <button
-                            onClick={() => handleDecrease(index)}
+                          onClick={() => decreaseQt(item)}
                             type="button"
                             id="decrement-button"
                             data-input-counter-decrement="counter-input"
@@ -109,7 +167,7 @@ const Cart = () => {
                             readOnly
                           />
                           <button
-                            onClick={() => handleIncrease(index)}
+                            onClick={() => increaseQt(item)}
                             type="button"
                             id="increment-button"
                             data-input-counter-increment="counter-input"
@@ -147,7 +205,7 @@ const Cart = () => {
                         </a>
                         <div className="flex items-center gap-4">
                           <button
-                            onClick={() => handleRemove(item._id)}
+                            onClick={() => handleDeleteCartItem(item)}
                             type="button"
                             className="inline-flex items-center text-sm font-medium text-red-600 hover:underline dark:text-red-500"
                           >
@@ -200,15 +258,16 @@ const Cart = () => {
                     Proceed to Checkout
                   </a>
                   <div className="flex items-center justify-center gap-2">
-                    <span className="text-sm font-normal text-gray-500"> or </span>
+                    <span className="text-sm font-normal text-gray-500">
+                      {" "}
+                      or{" "}
+                    </span>
                     <a
                       href="#"
                       title=""
                       className="inline-flex items-center gap-2 text-sm font-medium text-primary-700 underline hover:no-underline dark:text-primary-500"
-                      >
-                      <Link to="/">
-                      Continue Shopping
-                      </Link>
+                    >
+                      <Link to="/">Continue Shopping</Link>
                       <svg
                         className="h-5 w-5"
                         aria-hidden="true"

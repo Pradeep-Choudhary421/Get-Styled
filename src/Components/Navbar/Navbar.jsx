@@ -11,25 +11,33 @@ const Navbar = () => {
   const [menlist, setMenList] = useState(false);
   const [womenlist, setWomenList] = useState(false);
   const [kidlist, setKidList] = useState(false);
+  const [tokenExist, setTokenExist] = useState(localStorage.getItem("token") != null)
 
   const [orderedItem, setOrderedItem] = useState([]);
-  const itemsUrl = "https://get-styled-backend.onrender.com/order/getcartItems";
+  const itemsUrl = "http://localhost:6060/order/getcartItems";
 
   useEffect(() => {
     getItems();
-  });
+  },[]);
   const getItems = async () => {
-    try {
-      const response = await axios.get(itemsUrl, {
-        headers: {
-          "auth-x-token": document.cookie.split("=")[1],
-        },
-      });
-      setOrderedItem(response.data.result);
-    } catch (err) {
-      console.log(err);
+    if(localStorage.getItem("token") != null){
+      try {
+        const response = await axios.get(itemsUrl, {
+          headers: {
+            "auth-x-token": localStorage.getItem("token"),
+          },
+        });
+        setOrderedItem(response.data.result);
+      } catch (err) {
+        console.log(err);
+      }
     }
   };
+  const handleLogOut = () =>{
+    localStorage.removeItem("token")
+    setTokenExist(false)
+
+  }
 
   const handleToggle = () => {
     setHam(!ham);
@@ -53,7 +61,7 @@ const Navbar = () => {
 
   return (
     <>
-      <nav className="flex bg-[#F9F5F0] border-b-2 border-black justify-between px-12 py-5 ">
+      <nav className="flex bg-[#F9F5F0] border-b-2 border-black justify-between px-12 py-5 fixed w-[100%] z-50 ">
         <div className="logo font-link text-2xl">Get-Styled</div>
         <div className="hidden md:block mr-12">
           <ul className="flex justify-evenly gap-16">
@@ -100,18 +108,34 @@ const Navbar = () => {
         </div>
         <div className="flex gap-4">
           <div>
-            <Link to="/login">
-              <button className=" rounded-lg py-1 px-2 bg-[#000] text-[#FFFFFF]  flex justify-center border-2 border-2xl">
-                Login
+            { tokenExist ?
+              <Link to="/">
+              <button className=" rounded-lg py-1 px-2 bg-[#000] text-[#FFFFFF]  flex justify-center border-2 border-2xl" onClick={handleLogOut}>
+                Logout
               </button>
-            </Link>
+            </Link> :
+            <Link to="/login">
+            <button className=" rounded-lg py-1 px-2 bg-[#000] text-[#FFFFFF]  flex justify-center border-2 border-2xl">
+              LogIn
+            </button>
+          </Link>
+            }
           </div>
           <div className="text-3xl mt-[-10px]">
+            {
+              tokenExist ?
             <Badge badgeContent={orderedItem.length} color="primary">
               <Link to="/cart">
                 <GiShoppingCart className="cursor-pointer" />
               </Link>
-            </Badge>
+            </Badge> :
+            <Badge badgeContent="0" color="primary">
+            <Link to="/cart">
+              <GiShoppingCart className="cursor-pointer" />
+            </Link>
+          </Badge> 
+
+            }
           </div>
           <div className="block text-3xl md:hidden" onClick={handleToggle}>
             {ham ? <TfiClose /> : <TfiAlignJustify />}
@@ -121,21 +145,27 @@ const Navbar = () => {
       {/* mobile screen */}
       <div
         className={`transition-max-height duration-500 ease-in-out ${
-          ham ? "max-h-60" : "max-h-0"
+          ham ? "max-h-[40vh]" : "max-h-0"
         } overflow-hidden md:hidden`}
       >
-        <div className="grid grid-cols-1 bg-red-300">
+        <div className="grid grid-cols-1 bg-[#F9F5F0] mt-24 border-2 border-b-black">
           <div className="flex justify-center py-3 border-b border-gray-200 cursor-pointer">
             <Link to="/">Home</Link>
           </div>
           <div className="flex justify-center py-3 border-b border-gray-200 cursor-pointer">
+            <Link to="/mens">
             Men
+            </Link>
           </div>
           <div className="flex justify-center py-3 border-b border-gray-200 cursor-pointer">
+            <Link to="/womens">
             Women
+            </Link>
           </div>
           <div className="flex justify-center py-3 border-b border-gray-200 cursor-pointer">
+            <Link to="/kids">
             Kids
+            </Link>
           </div>
         </div>
       </div>
