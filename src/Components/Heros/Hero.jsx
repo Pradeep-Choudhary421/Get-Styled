@@ -7,8 +7,8 @@ const imgs = [
   "https://marketplace.canva.com/EAFJyDO5UQs/1/0/1600w/canva-beige-minimal-aesthetic-new-fashion-collection-banner-FXXYhSTS-mc.jpg",
   "https://marketplace.canva.com/EAFoEJMTGiI/1/0/1600w/canva-beige-aesthetic-new-arrival-fashion-banner-landscape-cNjAcBMeF9s.jpg",
   "https://img.freepik.com/free-vector/hand-drawn-texture-boutique-linkedin-banner_23-2149331198.jpg?w=2000",
-  "https://img.freepik.com/free-vector/flat-fashion-style-social-media-cover-template_23-2149874261.jpg?w=2000",
   "https://marketplace.canva.com/EAFLU0NpTbE/1/0/1600w/canva-brown-modern-new-brand-fashion-banner-u97g9GPKB4g.jpg",
+  "https://img.freepik.com/free-vector/flat-fashion-style-social-media-cover-template_23-2149874261.jpg?w=2000",
 ];
 
 const ONE_SECOND = 1000;
