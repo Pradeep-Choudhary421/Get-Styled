@@ -23,7 +23,7 @@ const Login = () => {
         toast.success(res.data.message);
       })
       .catch((err) => {
-        toast.error("Invalid Credentials");
+        toast.error("Invalid Email or Password");
         console.log(err);
       });
   };
