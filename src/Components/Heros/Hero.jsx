@@ -2,13 +2,13 @@ import React, { useEffect, useState } from "react";
 import { motion, useMotionValue } from "framer-motion";
 
 const imgs = [
-  "https://www.shutterstock.com/image-photo/cheerful-african-american-family-enjoying-260nw-2230019949.jpg",
-  "https://www.shutterstock.com/image-photo/close-business-suit-formal-shirt-600nw-1162746760.jpg",
-  "https://www.shutterstock.com/image-photo/close-business-suit-formal-shirt-600nw-1162746760.jpg",
-  "https://img.freepik.com/premium-photo/red-sneakers-hanging-lace-copy-space-empty-purple-background_780608-9514.jpg",
-  "https://i.pinimg.com/564x/e9/4b/83/e94b83a6c821a70cc862e3f6de92cabc.jpg",
-  "https://i.pinimg.com/564x/71/fd/23/71fd23342399df17eb618ece7fbd00a2.jpg",
-  "https://i.pinimg.com/564x/cf/8a/48/cf8a48dfae67901c58e5ae3d9660fb88.jpg",
+  "https://marketplace.canva.com/EAFWecuevFk/1/0/1600w/canva-grey-brown-minimalist-summer-season-collections-banner-landscape-VXEmg9V800o.jpg",
+  "https://marketplace.canva.com/EAFKwirl3N8/1/0/1600w/canva-brown-minimalist-fashion-product-banner-iRHpbHTqh-A.jpg",
+  "https://marketplace.canva.com/EAFJyDO5UQs/1/0/1600w/canva-beige-minimal-aesthetic-new-fashion-collection-banner-FXXYhSTS-mc.jpg",
+  "https://marketplace.canva.com/EAFoEJMTGiI/1/0/1600w/canva-beige-aesthetic-new-arrival-fashion-banner-landscape-cNjAcBMeF9s.jpg",
+  "https://img.freepik.com/free-vector/hand-drawn-texture-boutique-linkedin-banner_23-2149331198.jpg?w=2000",
+  "https://img.freepik.com/free-vector/flat-fashion-style-social-media-cover-template_23-2149874261.jpg?w=2000",
+  "https://marketplace.canva.com/EAFLU0NpTbE/1/0/1600w/canva-brown-modern-new-brand-fashion-banner-u97g9GPKB4g.jpg",
 ];
 
 const ONE_SECOND = 1000;
@@ -87,7 +87,7 @@ const Images = ({ imgIndex }) => {
         {imgs.map((imgSrc, idx) => {
           return (
             <motion.div
-              key={idx}
+              key={idx} 
               style={{
                 backgroundImage: `url(${imgSrc})`,
                 backgroundSize: "cover",
@@ -97,9 +97,9 @@ const Images = ({ imgIndex }) => {
                 scale: imgIndex === idx ? 0.95 : 0.85,
               }}
               transition={SPRING_OPTIONS}
-              className="relative aspect-video w-full h-[500px] shrink-0 rounded-xl bg-neutral-600 object-cover"
+              className="relative aspect-video w-[100vw] h-[300px] lg:w-full lg:h-[500px] shrink-0 rounded-xl bg-neutral-600 object-cover"
             >
-              <div className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-50 text-white text-2xl">
+              <div className="absolute inset-0 flex items-center justify-center  text-white text-2xl">
                 
               </div>
             </motion.div>
