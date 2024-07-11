@@ -75,37 +75,37 @@ const Navbar = () => {
             <li className="relative cursor-pointer" onClick={handleMenList}>
               Men
               <ul
-                className={`absolute left-0 mt-2 p-2 z-50 bg-white border rounded shadow-lg ${
+                className={`absolute left-0 mt-2 p-2 z-50 w-[200px] bg-white border rounded shadow-lg ${
                   menlist ? "block" : "hidden"
                 }`}
               >
-                <Link to="/menTop"><li className="py-1 px-3 hover:bg-gray-200">Top</li></Link>
-                <Link to="/menbottom"><li className="py-1 px-3 hover:bg-gray-200">Bottom</li></Link>
-                <Link to="/menFoot"><li className="py-1 px-3 hover:bg-gray-200">Foot</li></Link>
+                <Link to="/menTop"><li className="py-1 px-3 hover:bg-gray-200">Top Wears</li></Link>
+                <Link to="/menbottom"><li className="py-1 px-3 hover:bg-gray-200">Bottom Wears</li></Link>
+                <Link to="/menFoot"><li className="py-1 px-3 hover:bg-gray-200">Foot Wear</li></Link>
               </ul>
             </li>
             <li className="relative cursor-pointer" onClick={handleWomenList}>
               Women
               <ul
-                className={`absolute left-0 mt-2 p-2 z-50 bg-white border rounded shadow-lg ${
+                className={`absolute left-0 mt-2 p-2 z-50 w-[200px] bg-white border rounded shadow-lg ${
                   womenlist ? "block" : "hidden"
                 }`}
               >
-                <li className="py-1 px-3 hover:bg-gray-200"><Link to="/womenTop">Top</Link></li>
-                <li className="py-1 px-3 hover:bg-gray-200"><Link to="/womenbottom">Bottom</Link></li>
-                <li className="py-1 px-3 hover:bg-gray-200"><Link to="/womenFoot">Foot</Link></li>
+                <li className="py-1 px-3 hover:bg-gray-200"><Link to="/womenTop">Top Wears</Link></li>
+                <li className="py-1 px-3 hover:bg-gray-200"><Link to="/womenbottom">Bottom Wears</Link></li>
+                <li className="py-1 px-3 hover:bg-gray-200"><Link to="/womenFoot">Foot Wears</Link></li>
               </ul>
             </li>
             <li className="relative cursor-pointer" onClick={handlekidsList}>
               Kid
               <ul
-                className={`absolute left-0 mt-2 p-2 z-50 bg-white border rounded shadow-lg ${
+                className={`absolute left-0 mt-2 p-2 z-50 w-[200px] bg-white border rounded shadow-lg ${
                   kidlist ? "block" : "hidden"
                 }`}
               >
-                <li className="py-1 px-3 hover:bg-gray-200"><Link to="/kidsTop">Top</Link></li>
-                <li className="py-1 px-3 hover:bg-gray-200"><Link to="/kidsbottom">Bottom</Link></li>
-                <li className="py-1 px-3 hover:bg-gray-200"><Link to="/kidsFoot">Foot</Link></li>
+                <li className="py-1 px-3 hover:bg-gray-200"><Link to="/kidsTop">Top Wears</Link></li>
+                <li className="py-1 px-3 hover:bg-gray-200"><Link to="/kidsbottom">Bottom Wears</Link></li>
+                <li className="py-1 px-3 hover:bg-gray-200"><Link to="/kidsFoot">Foot Wears</Link></li>
               </ul>
             </li>
           </ul>

@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
-import loginImg from "../../assets/loginImg.png";
 import axios from "axios";
 const Login = () => {
   const [data, setData] = useState({
