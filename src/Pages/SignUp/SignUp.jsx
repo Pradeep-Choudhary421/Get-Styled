@@ -11,7 +11,7 @@ const SignUp = () => {
     password: "",
   });
 
-  const url = "https://get-styled-backend.onrender.com/user/createUser";
+  const url = "http://localhost:6060/user/createUser";
   const navigate = useNavigate();
 
   const createUser = () => {
@@ -42,58 +42,115 @@ const SignUp = () => {
 
   return (
     <>
-      <section className="grid justify-center py-[31vh] 2xl:py-[15vh] bg-[#F9F5F0]">
-        <div className="grid isolate justify-center py-8 aspect-video w-96 rounded-xl bg-[#E3DDC3] shadow-lg ring-1 ring-black ">
-          <h1 className="text-3xl">SignUp Here</h1>
-          <form className="grid gap-1 pt-12 pb-8" onSubmit={handleSubmit}>
-            <input
-              type="text"
-              name="full_name"
-              placeholder="Full Name"
-              value={data.full_name}
-              className="border-2 rounded-lg px-2 py-2 outline-none"
-              onChange={handleTarget}
-            />
-            <br />
-            <input
-              type="number"
-              name="phone_no"
-              placeholder="Phone No."
-              value={data.phone_no}
-              className="border-2 rounded-lg px-2 py-2 outline-none"
-              onChange={handleTarget}
-            />
-            <br />
-            <input
-              type="email"
-              name="email"
-              placeholder="email"
-              value={data.email}
-              className="border-2 rounded-lg px-2 py-2 outline-none"
-              onChange={handleTarget}
-            />
-            <br />
-            <input
-              type="password"
-              name="password"
-              placeholder="password"
-              value={data.password}
-              className="border-2 rounded-lg px-2 py-2 outline-none"
-              onChange={handleTarget}
-            />
-            <button
-              type="submit"
-              className="w-5/12 mt-4 rounded-lg py-1 bg-[#000] text-[#FFFFFF] mx-auto flex justify-center border-2 border-2xl"
+      {/* ----------------------------------------------- */}
+      <section>
+        <div className="bg-[#F9F5F0] h-screen w-screen">
+          <div className="flex flex-col items-center flex-1 h-full justify-center px-4 sm:px-0">
+            <div
+              className="flex rounded-lg shadow-lg w-full sm:w-3/4 lg:w-1/2 bg-white sm:mx-0"
+              style={{ height: "500px" }}
             >
-              Sign In
-            </button>
-          </form>
-          <h2>
-            Already have an Account ?
-            <Link to="/login">
-              <span className="text-white cursor-pointer"> Login Here</span>
-            </Link>
-          </h2>
+              <div
+                className="hidden md:block md:w-1/2 rounded-r-lg"
+                style={{
+                  background:
+                    "url('https://images.unsplash.com/photo-1515965885361-f1e0095517ea?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=3300&q=80')",
+                  backgroundSize: "cover",
+                  backgroundPosition: "center center",
+                }}
+              ></div>
+              <div className="flex flex-col w-full md:w-1/2 p-4">
+                <div className="flex flex-col flex-1 justify-center mb-8">
+                  <h1 className="text-4xl text-center font-thin">
+                    Register 
+                  </h1>
+                  <div className="w-full mt-4">
+                    <form
+                      className="form-horizontal w-3/4 mx-auto"
+                      method="POST"
+                      onSubmit={handleSubmit}
+                    >
+                      <div className="flex flex-col mt-4">
+                        <input
+                          id="full_name"
+                          type="text"
+                          className="flex-grow h-8 px-2 border rounded border-grey-400"
+                          name="full_name"
+                          required
+                          placeholder="Full Name"
+                          value={data.full_name}
+                          onChange={handleTarget}
+                        />
+                      </div>
+                      <div className="flex flex-col mt-4">
+                        <input
+                          id="phone_no"
+                          type="number"
+                          className="flex-grow h-8 px-2 border rounded border-grey-400"
+                          name="phone_no"
+                          required
+                          placeholder="Phone No."
+                          value={data.phone_no}
+                          onChange={handleTarget}
+                        />
+                      </div>
+                      <div className="flex flex-col mt-4">
+                        <input
+                          id="email"
+                          type="text"
+                          className="flex-grow h-8 px-2 border rounded border-grey-400"
+                          name="email"
+                          required
+                          placeholder="Email"
+                          value={data.email}
+                          onChange={handleTarget}
+                        />
+                      </div>
+                      <div className="flex flex-col mt-4">
+                        <input
+                          id="password"
+                          type="password"
+                          className="flex-grow h-8 px-2 rounded border border-grey-400"
+                          name="password"
+                          required
+                          placeholder="Password"
+                          value={data.password}
+                          onChange={handleTarget}
+                        />
+                      </div>
+                      <div className="flex flex-col mt-8">
+                        <button
+                          type="submit"
+                          className="bg-blue-500 hover:bg-blue-700 text-white text-sm font-semibold py-2 px-4 rounded"
+                        >
+                          Register
+                        </button>
+                      </div>
+                    </form>
+                    {/* <div className="text-center mt-4">
+                      <a
+                        className="no-underline hover:underline text-blue-dark text-xs"
+                        href="#"
+                      >
+                        Forgot Your Password?
+                      </a>
+                    </div> */}
+                    <div className="text-center mt-4">
+                      <span
+                        className="no-underline hover:underline text-blue-dark text-xs"
+                        href="#register"
+                      >
+                        Already Have an Account?
+                        <span className="text-lg">
+                        <Link to="/login">Login Here</Link>
+                        </span>
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
     </>

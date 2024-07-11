@@ -8,8 +8,7 @@ const WomenBottomWear = () => {
   const [bottomwear, setBottomwear] = useState([]);
   const [selectedItem, setSelectedItem] = useState(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const urlforBottom =
-    "https://get-styled-backend.onrender.com/product/getAllProduct";
+  const urlforBottom = "http://localhost:6060/product/getAllProduct";
 
   useEffect(() => {
     getTop();
@@ -70,7 +69,7 @@ const WomenBottomWear = () => {
                   <ReactStars
                     count={item?.ProductRating}
                     size={24}
-                    activeColor="#ffe500"
+                    activeColor="#F9F5F0"
                     color="#F9F5F0"
                   />
                 </div>

@@ -8,8 +8,7 @@ const MenSection = () => {
   const [menData, setMenData] = useState([]);
   const [selectedItem, setSelectedItem] = useState(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const urlforMen =
-    "https://get-styled-backend.onrender.com/product/getAllProduct";
+  const urlforMen = "http://localhost:6060/product/getAllProduct";
 
   useEffect(() => {
     getMen();
@@ -65,7 +64,7 @@ const MenSection = () => {
                   <ReactStars
                     count={item?.ProductRating}
                     size={24}
-                    activeColor="#ffe500"
+                    activeColor="#F9F5F0"
                     color="#F9F5F0"
                   />
                 </div>

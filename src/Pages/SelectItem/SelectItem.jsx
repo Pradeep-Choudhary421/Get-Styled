@@ -4,10 +4,10 @@ import { toast } from "react-toastify";
 const ItemModal = ({ item, onClose }) => {
   if (!item) return null;
 
-  const addToCartUrl =
-    "https://get-styled-backend.onrender.com/order/addToCart";
+  const addToCartUrl = "http://localhost:6060/order/addToCart";
 
   const addToCart = async () => {
+
     try {
       const response = await axios.post(
         addToCartUrl,
@@ -20,9 +20,10 @@ const ItemModal = ({ item, onClose }) => {
             "auth-x-token": localStorage.getItem("token"),
           },
         }
-      );
+      )
 
       toast.success("Item added to cart");
+      // window.location.reload();
     } catch (err) {
       toast.info("Login First");
     }
@@ -32,8 +33,9 @@ const ItemModal = ({ item, onClose }) => {
     <div className="fixed inset-0 flex items-center justify-center z-50 bg-black bg-opacity-50">
       <div className="p-8 rounded shadow-lg mx-4 w-10/12 2xl:w-5/12 bg-white">
         <div className="flex justify-end pb-4">
-          <button onClick={onClose} className="text-2xl">
-            X Close
+          <button onClick={onClose} className="text-2xl border-2 p-2">
+            {/* X  */}
+            Close
           </button>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 border-2 justify-center gap-12 p-4">

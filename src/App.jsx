@@ -22,7 +22,7 @@ const App = () => {
   return (
 
     <BrowserRouter>
-    <ToastContainer />
+    <ToastContainer autoClose={1000} />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/cart" element={<Cart />} />

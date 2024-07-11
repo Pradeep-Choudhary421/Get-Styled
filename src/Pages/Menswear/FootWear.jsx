@@ -8,8 +8,7 @@ const MenFootWear = () => {
   const [footwear, setFootWear] = useState([]);
   const [selectedItem, setSelectedItem] = useState(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const urlforFoot =
-    "https://get-styled-backend.onrender.com/product/getAllProduct";
+  const urlforFoot = "http://localhost:6060/product/getAllProduct";
 
   useEffect(() => {
     getFoot();
@@ -72,7 +71,7 @@ const MenFootWear = () => {
                   <ReactStars
                     count={item?.ProductRating}
                     size={24}
-                    activeColor="#ffe500"
+                    activeColor="#F9F5F0"
                     color="#F9F5F0"
                   />
                 </div>

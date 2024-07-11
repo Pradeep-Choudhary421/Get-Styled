@@ -1,15 +1,15 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
+import loginImg from "../../assets/loginImg.png";
 import axios from "axios";
 const Login = () => {
   const [data, setData] = useState({
     email: "",
     password: "",
   });
-  const url = "https://get-styled-backend.onrender.com/user/login";
+  const url = "http://localhost:6060/user/login";
   const navigate = useNavigate();
-
   const loginUser = () => {
     axios
       .post(url, data)
@@ -42,43 +42,91 @@ const Login = () => {
 
   return (
     <>
-      <section className="grid justify-center py-[36vh] 2xl:py-[24.8vh] bg-[#F9F5F0]">
-        <div className="grid isolate justify-center py-8 aspect-video w-96 rounded-xl bg-[#E3DDC3] shadow-lg ring-1 ring-black">
-          <h1 className="text-3xl">Login Here</h1>
-          <form className="grid gap-1 pt-12 pb-8" onSubmit={handleSubmit}>
-            <input
-              type="email"
-              value={data.email}
-              name="email"
-              placeholder="Email"
-              className="border-2 rounded-lg px-2 py-2 outline-none"
-              onChange={handleChange}
-            />
-            <br />
-            <input
-              type="password"
-              name="password"
-              value={data.password}
-              placeholder="Password"
-              className="border-2 rounded-lg px-2 py-2 outline-none"
-              onChange={handleChange}
-            />
-            <button
-              type="submit"
-              className="w-5/12 mt-4 rounded-lg py-1 bg-[#000] text-[#FFFFFF] mx-auto flex justify-center "
+      {/* ----------------------------------------------------------- */}
+      <section>
+        <div className="bg-[#F9F5F0] h-screen w-screen">
+          <div className="flex flex-col items-center flex-1 h-full justify-center px-4 sm:px-0">
+            <div
+              className="flex rounded-lg shadow-lg w-full sm:w-3/4 lg:w-1/2 bg-white sm:mx-0"
+              style={{ height: "500px" }}
             >
-              Login
-            </button>
-          </form>
-          <h2>
-            Don't have an Account ?
-            <Link to="/signUp">
-              <span className="text-[#FFFFFF]  cursor-pointer">
-                {" "}
-                SignUp Here
-              </span>
-            </Link>
-          </h2>
+              <div
+                className="hidden md:block md:w-1/2 rounded-r-lg"
+                style={{
+                  background:
+                    "url('https://images.unsplash.com/photo-1515965885361-f1e0095517ea?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=3300&q=80')",
+                  backgroundSize: "cover",
+                  backgroundPosition: "center center",
+                }}
+              ></div>
+              <div className="flex flex-col w-full md:w-1/2 p-4">
+                <div className="flex flex-col flex-1 justify-center mb-8">
+                  <h1 className="text-4xl text-center font-thin">
+                    Welcome Back
+                  </h1>
+                  <div className="w-full mt-4">
+                    <form
+                      className="form-horizontal w-3/4 mx-auto"
+                      method="POST"
+                      onSubmit={handleSubmit}
+                    >
+                      <div className="flex flex-col mt-4">
+                        <input
+                          id="email"
+                          type="text"
+                          className="flex-grow h-8 px-2 border rounded border-grey-400"
+                          name="email"
+                          required
+                          placeholder="Email"
+                          value={data.email}
+                          onChange={handleChange}
+                        />
+                      </div>
+                      <div className="flex flex-col mt-4">
+                        <input
+                          id="password"
+                          type="password"
+                          className="flex-grow h-8 px-2 rounded border border-grey-400"
+                          name="password"
+                          required
+                          placeholder="Password"
+                          value={data.password}
+                          onChange={handleChange}
+                        />
+                      </div>
+                      <div className="flex flex-col mt-8">
+                        <button
+                          type="submit"
+                          className="bg-blue-500 hover:bg-blue-700 text-white text-sm font-semibold py-2 px-4 rounded"
+                        >
+                          Login
+                        </button>
+                      </div>
+                    </form>
+                    <div className="text-center mt-4">
+                      <a
+                        className="no-underline hover:underline text-blue-dark text-xs"
+                        href="#"
+                      >
+                        Forgot Your Password?
+                      </a>
+                    </div>
+                    <div className="text-center mt-4">
+                      <span
+                        className="no-underline hover:underline text-blue-dark text-xs"
+                        href="#register"
+                      >
+                        Don't Have an Account?
+                        <span className="text-lg">
+                        <Link to="/signUp">Register Here</Link>
+                        </span>
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
     </>
