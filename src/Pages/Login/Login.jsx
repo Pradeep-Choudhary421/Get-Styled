@@ -53,7 +53,7 @@ const Login = () => {
                 className="hidden md:block md:w-1/2 rounded-r-lg"
                 style={{
                   background:
-                    "url('https://images.unsplash.com/photo-1515965885361-f1e0095517ea?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=3300&q=80')",
+                    "url('https://images.unsplash.com/photo-1555529771-835f59fc5efe?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDV8fHxlbnwwfHx8fHw%3D')",
                   backgroundSize: "cover",
                   backgroundPosition: "center center",
                 }}
