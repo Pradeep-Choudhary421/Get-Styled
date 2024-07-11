@@ -1,11 +1,22 @@
 import React from "react";
 import axios from "axios";
 import { toast } from "react-toastify";
+import { Link } from "react-router-dom";
 const ItemModal = ({ item, onClose }) => {
   if (!item) return null;
 
   const addToCartUrl =
     "https://get-styled-backend.onrender.com/order/addToCart";
+
+    const Msg = ({ closeToast, toastProps }) => (
+      <div>
+        <Link to="/cart">
+        Item Added To Cart
+        </Link>
+      </div>
+    );
+    
+    
 
   const addToCart = async () => {
     try {
@@ -22,7 +33,7 @@ const ItemModal = ({ item, onClose }) => {
         }
       );
 
-      toast.success("Item added to cart");
+      toast.success(<Msg />);
       // window.location.reload();
     } catch (err) {
       toast.info("Login First");
