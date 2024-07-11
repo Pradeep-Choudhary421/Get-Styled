@@ -110,7 +110,7 @@ const Cart = () => {
   return (
     <>
       <Navbar />
-      <section className="bg-[#F9F5F0] antialiased py-24 h-[100vh] pt-32">
+      <section className="antialiased py-24 h-[100vh] pt-32">
         <div className="mx-auto max-w-screen-xl px-4 2xl:px-0">
           <h2 className="text-xl sm:text-2xl flex justify-center">
             Shopping Cart
