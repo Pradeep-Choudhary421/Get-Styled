@@ -73,7 +73,6 @@ const Cart = () => {
           },
         });
         setOrderedItem(response.data.result);
-        console.log(response.data.result);
       } catch (err) {
         console.log(err);
       }
@@ -127,7 +126,7 @@ const Cart = () => {
                 {orderedItem.map((item, index) => (
                   <div key={item._id} className="space-y-6 mb-4">
                     <div className="rounded-lg border border-gray-200 p-4 shadow-sm bg-[#E3DDC3] md:p-6">
-                      <div className="space-y-4 md:flex md:items-center md:justify-between md:gap-6 md:space-y-0">
+                      <div className="space-y-4  md:flex md:items-center md:justify-between md:gap-6 md:space-y-0">
                         <a href="#" className="shrink-0 md:order-1">
                           <div className="overflow-hidden">
                             <img
@@ -137,9 +136,6 @@ const Cart = () => {
                             />
                           </div>
                         </a>
-                        <label htmlFor="counter-input" className="sr-only">
-                          Choose quantity:
-                        </label>
                         <div className="flex items-center justify-between md:order-3 md:justify-end">
                           <div className="flex items-center">
                             <button
