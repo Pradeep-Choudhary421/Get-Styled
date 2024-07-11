@@ -96,15 +96,15 @@ const Navbar = () => {
                   womenlist ? "block" : "hidden"
                 }`}
               >
-                <li className="py-1 px-3 hover:bg-gray-200">
-                  <Link to="/womenTop">Top Wears</Link>
-                </li>
-                <li className="py-1 px-3 hover:bg-gray-200">
-                  <Link to="/womenbottom">Bottom Wears</Link>
-                </li>
-                <li className="py-1 px-3 hover:bg-gray-200">
-                  <Link to="/womenFoot">Foot Wears</Link>
-                </li>
+                <Link to="/womenTop">
+                  <li className="py-1 px-3 hover:bg-gray-200">Top Wears</li>
+                </Link>
+                <Link to="/womenbottom">
+                  <li className="py-1 px-3 hover:bg-gray-200">Bottom Wears</li>
+                </Link>
+                <Link to="/womenFoot">
+                  <li className="py-1 px-3 hover:bg-gray-200">Foot Wears</li>
+                </Link>
               </ul>
             </li>
             <li className="relative cursor-pointer" onClick={handlekidsList}>
@@ -114,15 +114,15 @@ const Navbar = () => {
                   kidlist ? "block" : "hidden"
                 }`}
               >
-                <li className="py-1 px-3 hover:bg-gray-200">
-                  <Link to="/kidsTop">Top Wears</Link>
-                </li>
-                <li className="py-1 px-3 hover:bg-gray-200">
-                  <Link to="/kidsbottom">Bottom Wears</Link>
-                </li>
-                <li className="py-1 px-3 hover:bg-gray-200">
-                  <Link to="/kidsFoot">Foot Wears</Link>
-                </li>
+                <Link to="/kidsTop">
+                  <li className="py-1 px-3 hover:bg-gray-200">Top Wears</li>
+                </Link>
+                <Link to="/kidsbottom">
+                  <li className="py-1 px-3 hover:bg-gray-200">Bottom Wears</li>
+                </Link>
+                <Link to="/kidsFoot">
+                  <li className="py-1 px-3 hover:bg-gray-200">Foot Wears</li>
+                </Link>
               </ul>
             </li>
           </ul>
