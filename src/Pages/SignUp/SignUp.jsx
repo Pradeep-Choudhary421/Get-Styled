@@ -11,7 +11,7 @@ const SignUp = () => {
     password: "",
   });
 
-  const url = "http://localhost:6060/user/createUser";
+  const url = "https://get-styled-backend.onrender.com/user/createUser";
   const navigate = useNavigate();
 
   const createUser = () => {
@@ -61,9 +61,7 @@ const SignUp = () => {
               ></div>
               <div className="flex flex-col w-full md:w-1/2 p-4">
                 <div className="flex flex-col flex-1 justify-center mb-8">
-                  <h1 className="text-4xl text-center font-thin">
-                    Register 
-                  </h1>
+                  <h1 className="text-4xl text-center font-thin">Register</h1>
                   <div className="w-full mt-4">
                     <form
                       className="form-horizontal w-3/4 mx-auto"
@@ -142,7 +140,7 @@ const SignUp = () => {
                       >
                         Already Have an Account?
                         <span className="text-lg">
-                        <Link to="/login">Login Here</Link>
+                          <Link to="/login">Login Here</Link>
                         </span>
                       </span>
                     </div>

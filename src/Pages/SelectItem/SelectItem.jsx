@@ -4,10 +4,10 @@ import { toast } from "react-toastify";
 const ItemModal = ({ item, onClose }) => {
   if (!item) return null;
 
-  const addToCartUrl = "http://localhost:6060/order/addToCart";
+  const addToCartUrl =
+    "https://get-styled-backend.onrender.com/order/addToCart";
 
   const addToCart = async () => {
-
     try {
       const response = await axios.post(
         addToCartUrl,
@@ -20,7 +20,7 @@ const ItemModal = ({ item, onClose }) => {
             "auth-x-token": localStorage.getItem("token"),
           },
         }
-      )
+      );
 
       toast.success("Item added to cart");
       // window.location.reload();

@@ -8,7 +8,8 @@ const KidsBottomWear = () => {
   const [bottomwear, setBottomwear] = useState([]);
   const [selectedItem, setSelectedItem] = useState(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const urlforBottom = "http://localhost:6060/product/getAllProduct";
+  const urlforBottom =
+    "https://get-styled-backend.onrender.com/product/getAllProduct";
 
   useEffect(() => {
     getTop();
