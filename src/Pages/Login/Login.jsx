@@ -96,7 +96,7 @@ const Login = () => {
                       <div className="flex flex-col mt-8">
                         <button
                           type="submit"
-                          className="bg-blue-500 hover:bg-blue-700 text-white text-sm font-semibold py-2 px-4 rounded"
+                          className="bg-[#e8e5e1] hover:bg-[#f0ece7] text-black text-sm font-semibold py-2 px-4 rounded"
                         >
                           Login
                         </button>
