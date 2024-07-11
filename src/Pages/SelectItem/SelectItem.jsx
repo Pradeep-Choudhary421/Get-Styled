@@ -8,17 +8,13 @@ const ItemModal = ({ item, onClose }) => {
   const addToCartUrl =
     "https://get-styled-backend.onrender.com/order/addToCart";
 
-    const navigate = useNavigate();
+  const navigate = useNavigate();
 
-    const Msg = ({ closeToast, toastProps }) => (
-      <div>
-        <Link to="/cart">
-        Item Added To Cart
-        </Link>
-      </div>
-    );
-    
-    
+  const Msg = ({ closeToast, toastProps }) => (
+    <div>
+      <Link to="/cart">Item Added To Cart</Link>
+    </div>
+  );
 
   const addToCart = async () => {
     try {
@@ -40,7 +36,6 @@ const ItemModal = ({ item, onClose }) => {
     } catch (err) {
       navigate("/login");
       toast.info("Login To Purchase");
-
     }
   };
 

@@ -103,12 +103,14 @@ const Login = () => {
                       </div>
                     </form>
                     <div className="text-center mt-4">
-                      <a
-                        className="no-underline hover:underline text-blue-dark text-xs"
-                        href="#"
-                      >
-                        Forgot Your Password?
-                      </a>
+                      <Link to="/resetPass">
+                        <span
+                          className="no-underline hover:underline text-blue-dark text-xs"
+                          href="#"
+                        >
+                          Forgot Your Password?
+                        </span>
+                      </Link>
                     </div>
                     <div className="text-center mt-4">
                       <span
