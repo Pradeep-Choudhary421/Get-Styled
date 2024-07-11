@@ -1,12 +1,14 @@
 import React from "react";
 import axios from "axios";
 import { toast } from "react-toastify";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 const ItemModal = ({ item, onClose }) => {
   if (!item) return null;
 
   const addToCartUrl =
     "https://get-styled-backend.onrender.com/order/addToCart";
+
+    const navigate = useNavigate();
 
     const Msg = ({ closeToast, toastProps }) => (
       <div>
@@ -36,7 +38,9 @@ const ItemModal = ({ item, onClose }) => {
       toast.success(<Msg />);
       // window.location.reload();
     } catch (err) {
-      toast.info("Login First");
+      navigate("/login");
+      toast.info("Login To Purchase");
+
     }
   };
 
