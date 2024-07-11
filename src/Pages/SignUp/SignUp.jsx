@@ -43,7 +43,7 @@ const SignUp = () => {
   return (
     <>
       {/* ----------------------------------------------- */}
-      <section>
+      <section className=" fixed">
         <div className="bg-[#F9F5F0] h-screen w-screen">
           <div className="flex flex-col items-center flex-1 h-full justify-center px-4 sm:px-0">
             <div

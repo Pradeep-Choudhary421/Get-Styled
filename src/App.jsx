@@ -17,17 +17,17 @@ import WomenBottomWear from "./Pages/WomensWear/BottomWear";
 import KidsTopWear from "./Pages/KidsWear/TopWear";
 import KidsBottomWear from "./Pages/KidsWear/BottomWear";
 import KidsFootWear from "./Pages/KidsWear/FootWear";
+import Footer from "./Components/Footer/Footer";
 
 const App = () => {
   return (
 
     <BrowserRouter>
     <ToastContainer autoClose={1000} />
+    
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/cart" element={<Cart />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/signUp" element={<SignUp />} />
         <Route path="/mens" element={< Mens/>} />
         <Route path="/womens" element={<Womens />} />
         <Route path="/kids" element={<Kids />} />
@@ -47,6 +47,11 @@ const App = () => {
         <Route path="/kidsbottom" element={<KidsBottomWear />} />
         </Route>
       </Routes>
+      <Routes>
+      <Route path="/login" element={<Login />} />
+      <Route path="/signUp" element={<SignUp />} />
+      </Routes>
+      <Footer/>
     </BrowserRouter>
   );
 };
