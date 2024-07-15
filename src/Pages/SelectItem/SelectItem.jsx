@@ -38,6 +38,7 @@ const ItemModal = ({ item, onClose }) => {
       // window.location.reload();
     } catch (err) {
       navigate("/login");
+      Loading.remove();
       toast.info("Login To Purchase");
     }
   };
