@@ -17,7 +17,6 @@ import WomenBottomWear from "./Pages/WomensWear/BottomWear";
 import KidsTopWear from "./Pages/KidsWear/TopWear";
 import KidsBottomWear from "./Pages/KidsWear/BottomWear";
 import KidsFootWear from "./Pages/KidsWear/FootWear";
-import Footer from "./Components/Footer/Footer";
 import ResetPass from "./Pages/ResetPass/ResetPass";
 import OtpVerify from "./Pages/ResetPass/OtpVerify";
 import UpdatePass from "./Pages/ResetPass/UpdatePass";
@@ -57,7 +56,6 @@ const App = () => {
       <Route path="/updatePass" element={<UpdatePass />} />
       <Route path="/signUp" element={<SignUp />} />
       </Routes>
-      <Footer/>
     </BrowserRouter>
   );
 };
