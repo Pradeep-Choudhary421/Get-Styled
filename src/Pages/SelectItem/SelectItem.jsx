@@ -3,6 +3,7 @@ import axios from "axios";
 import { toast } from "react-toastify";
 import { Link, useNavigate } from "react-router-dom";
 import { Loading } from 'notiflix/build/notiflix-loading-aio';
+import { IoIosCloseCircleOutline } from "react-icons/io";
 const ItemModal = ({ item, onClose }) => {
   if (!item) return null;
 
@@ -45,11 +46,12 @@ const ItemModal = ({ item, onClose }) => {
 
   return (
     <div className="fixed inset-0 flex items-center justify-center z-50 bg-black bg-opacity-50">
-      <div className="p-16 h-6/6 rounded shadow-lg mx-4 w-10/12 2xl:w-5/12 bg-white ">
+      <div className="p-16 mt-12 rounded shadow-lg mx-4 w-10/12 2xl:w-5/12 bg-white ">
         <div className="flex justify-end pb-4">
-          <button onClick={onClose} className="text-2xl border-2 p-2">
+          <button onClick={onClose} className="text-2xl p-2">
             {/* X  */}
-            Close
+          <IoIosCloseCircleOutline />
+            {/* Close */}
           </button>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 border-2 justify-center gap-12 p-4">
