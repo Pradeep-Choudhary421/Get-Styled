@@ -172,10 +172,10 @@ const Navbar = () => {
       {/* mobile screen */}
       <div
         className={`transition-max-height duration-500 ease-in-out ${
-          ham ? "max-h-[40vh]" : "max-h-0"
+          ham ? "block" : "hidden"
         } overflow-hidden md:hidden`}
       >
-        <div className="grid grid-cols-1 bg-[#F9F5F0] mt-24 border-2 border-b-black">
+        <div className="grid grid-cols-1 bg-[#F9F5F0] mt-24 border-2 border-b-black fixed w-full z-[2000]">
           <div className="flex justify-center py-3 border-b border-gray-200 cursor-pointer">
             <Link to="/">Home</Link>
           </div>
@@ -189,7 +189,7 @@ const Navbar = () => {
             <Link to="/kids">Kids</Link>
           </div>
         </div>
-      </div>
+        </div>
     </>
   );
 };
