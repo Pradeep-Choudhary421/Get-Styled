@@ -45,7 +45,7 @@ const ItemModal = ({ item, onClose }) => {
 
   return (
     <div className="fixed inset-0 flex items-center justify-center z-50 bg-black bg-opacity-50">
-      <div className="p-8 rounded shadow-lg mx-4 w-10/12 2xl:w-5/12 bg-white">
+      <div className="p-16 h-6/6 rounded shadow-lg mx-4 w-10/12 2xl:w-5/12 bg-white ">
         <div className="flex justify-end pb-4">
           <button onClick={onClose} className="text-2xl border-2 p-2">
             {/* X  */}

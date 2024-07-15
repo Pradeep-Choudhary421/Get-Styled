@@ -171,11 +171,11 @@ const Navbar = () => {
       </nav>
       {/* mobile screen */}
       <div
-        className={` transition-all duration-700 ease-in-out ${
+        className={` transition-all bg-[#F9F5F0] duration-700 ease-in-out ${
           ham ? "block" : "hidden"
         } overflow-hidden md:hidden`}
       >
-        <div className="grid grid-cols-1 bg-[#F9F5F0] mt-24 border-2 border-b-black fixed w-full z-[2000]">
+        <div className="grid grid-cols-1 bg-[#F9F5F0] mt-16 border-2 border-b-black fixed w-full z-[2000]">
           <div className="flex justify-center py-3 border-b border-gray-200 cursor-pointer">
             <Link to="/">Home</Link>
           </div>
