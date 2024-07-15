@@ -171,7 +171,7 @@ const Navbar = () => {
       </nav>
       {/* mobile screen */}
       <div
-        className={`transition-max-height duration-500 ease-in-out ${
+        className={` transition-all duration-700 ease-in-out ${
           ham ? "block" : "hidden"
         } overflow-hidden md:hidden`}
       >
