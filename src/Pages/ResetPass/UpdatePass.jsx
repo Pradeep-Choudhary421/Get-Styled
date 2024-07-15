@@ -2,6 +2,7 @@ import axios from "axios";
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
+import { Loading } from 'notiflix/build/notiflix-loading-aio';
 
 const UpdatePass = () => {
   const [pass, setPass] = useState(null);
@@ -13,6 +14,7 @@ const UpdatePass = () => {
 
   const resetPass = async (e) => {
     e.preventDefault();
+    Loading.standard('Loading...')
     if (pass === confirmPass) {
       await axios
         .post(resetPassUrl, {
@@ -20,10 +22,12 @@ const UpdatePass = () => {
           newPassword: pass,
         })
         .then(() => {
-          toast.success("Password Updated Successfully");
           navigate("/login");
+          Loading.remove()
+          toast.success("Password Updated Successfully");
         });
     } else {
+      Loading.remove()
       toast.warn("Password Does Not Match");
     }
   };
@@ -35,7 +39,7 @@ const UpdatePass = () => {
           <div className="flex flex-col items-center flex-1 h-full justify-center px-4 sm:px-0">
             <div class="flex flex-1 flex-col  justify-center space-y-5 max-w-md mx-auto ">
               <div class="flex flex-col space-y-2 text-center">
-                <h2 class="text-3xl md:text-4xl font-bold">OTP Verification</h2>
+                <h2 class="text-3xl md:text-4xl font-bold">Set New Password</h2>
               </div>
               <form action="" onSubmit={resetPass}>
                 <div class="flex flex-col max-w-md space-y-5">

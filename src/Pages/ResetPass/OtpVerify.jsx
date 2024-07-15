@@ -1,17 +1,21 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
+import { Loading } from 'notiflix/build/notiflix-loading-aio';
 
 const OtpVerify = () => {
   const [otp, setOtp] = useState(null);
   const navigate = useNavigate();
   const verifyOtp = (e) => {
     e.preventDefault();
+    Loading.standard('Loading...')
     const sentOtp = localStorage.getItem("otp");
     if (otp === sentOtp) {
-        toast.success("OTP Verified")
-        navigate("/updatePass")
+      navigate("/updatePass")
+      Loading.remove()
+      toast.success("OTP Verified")
     } else {
+      Loading.remove()
         toast.error("Invalid OTP")
     }
   };
@@ -29,7 +33,7 @@ const OtpVerify = () => {
                 <input
                   onChange={(e) => setOtp(e.target.value)}
                   type="text"
-                  placeholder="6-Digit Otp"
+                  placeholder="Enter OTP To Verify"
                   required
                   class="flex px-3 py-2 md:px-4 md:py-3 border-2 border-black rounded-lg font-medium placeholder:font-normal"
                 />
