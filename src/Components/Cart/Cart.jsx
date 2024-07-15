@@ -62,8 +62,7 @@ const Cart = () => {
         toast.success("Quantity Decreased");
         getItems();
       } catch (err) {
-        toast.error("Error adding to cart");
-        console.log(err);
+        Loading.remove()
       }
     }
   };
