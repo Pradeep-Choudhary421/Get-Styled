@@ -33,7 +33,7 @@ const Cart = () => {
           }
         );
         Loading.remove()
-        toast.success("Quantity Increased");
+        // toast.success("Quantity Increased");
         getItems();
       } catch (err) {
         toast.error("Error adding to cart");
@@ -59,7 +59,7 @@ const Cart = () => {
           }
         );
         Loading.remove()
-        toast.success("Quantity Decreased");
+        // toast.success("Quantity Decreased");
         getItems();
       } catch (err) {
         Loading.remove()
