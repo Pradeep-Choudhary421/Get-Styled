@@ -60,11 +60,11 @@ const ItemModal = ({ item, onClose }) => {
             <h2 className="text-2xl">{item.ProductName}</h2>
             <p className="text-lg mt-2">{item.ProductDescription}</p>
             <p className="text-lg mt-4">RS. {item.ProductPrice}</p>
-            <div className="flex justify-center border-2 mt-4">
+            {/* <div className="flex justify-center border-2 mt-4">
               <div className="border-2 flex justify-center w-4/12">S</div>
               <div className="border-2 flex justify-center w-4/12">M</div>
               <div className="border-2 flex justify-center w-4/12">L</div>
-            </div>
+            </div> */}
             <button className="mt-4 border-4 py-1 px-4" onClick={addToCart}>
               Add To Cart
             </button>
