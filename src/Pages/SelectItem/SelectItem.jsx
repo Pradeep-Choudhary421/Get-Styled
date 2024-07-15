@@ -64,6 +64,7 @@ const ItemModal = ({ item, onClose }) => {
               <div className="border-2 flex justify-center w-4/12">S</div>
               <div className="border-2 flex justify-center w-4/12">M</div>
               <div className="border-2 flex justify-center w-4/12">L</div>
+              <div className="border-2 flex justify-center w-4/12">L</div>
             </div> */}
             <button className="mt-4 border-4 py-1 px-4" onClick={addToCart}>
               Add To Cart
