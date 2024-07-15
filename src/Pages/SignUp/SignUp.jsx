@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import { toast } from "react-toastify";
+import { Loading } from 'notiflix/build/notiflix-loading-aio';
 import "react-toastify/dist/ReactToastify.css";
 const SignUp = () => {
   const [data, setData] = useState({
@@ -15,6 +16,7 @@ const SignUp = () => {
   const navigate = useNavigate();
 
   const createUser = () => {
+    Loading.standard('Loading...')
     axios
       .post(url, data)
       .then(() => {
@@ -24,6 +26,7 @@ const SignUp = () => {
           phone_no: "",
           password: "",
         });
+        Loading.remove()
         toast.success("User created successfully");
         navigate("/login");
       })

@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import Navbar from "../Navbar/Navbar";
 import axios from "axios";
 import { Link } from "react-router-dom";
+import { Loading } from 'notiflix/build/notiflix-loading-aio';
 import { toast } from "react-toastify";
 
 const Cart = () => {
@@ -15,6 +16,7 @@ const Cart = () => {
     "https://get-styled-backend.onrender.com/order/addToCart";
 
   const increaseQt = async (itm) => {
+    Loading.standard('Loading...')
     if (localStorage.getItem("token") != null) {
       try {
         const response = await axios.post(
@@ -30,6 +32,7 @@ const Cart = () => {
             },
           }
         );
+        Loading.remove()
         toast.success("Quantity Increased");
         getItems();
       } catch (err) {
@@ -39,6 +42,7 @@ const Cart = () => {
     }
   };
   const decreaseQt = async (itm) => {
+    Loading.standard('Loading...')
     if (localStorage.getItem("token") != null) {
       try {
         const response = await axios.post(
@@ -54,7 +58,7 @@ const Cart = () => {
             },
           }
         );
-
+        Loading.remove()
         toast.success("Quantity Decreased");
         getItems();
       } catch (err) {
@@ -79,6 +83,7 @@ const Cart = () => {
     }
   };
   const handleDeleteCartItem = async (item) => {
+    Loading.standard('Loading...')
     if (localStorage.getItem("token") != null) {
       try {
         const response = await axios.delete(
@@ -92,6 +97,7 @@ const Cart = () => {
             },
           }
         );
+        Loading.remove()
         toast.success("Item Deleted");
         getItems();
       } catch (err) {

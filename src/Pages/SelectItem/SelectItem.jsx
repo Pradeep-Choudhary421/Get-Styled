@@ -2,6 +2,7 @@ import React from "react";
 import axios from "axios";
 import { toast } from "react-toastify";
 import { Link, useNavigate } from "react-router-dom";
+import { Loading } from 'notiflix/build/notiflix-loading-aio';
 const ItemModal = ({ item, onClose }) => {
   if (!item) return null;
 
@@ -12,11 +13,12 @@ const ItemModal = ({ item, onClose }) => {
 
   const Msg = ({ closeToast, toastProps }) => (
     <div>
-      <Link to="/cart">Item Added To Cart</Link>
+      <Link to="/cart">View Cart</Link>
     </div>
   );
 
   const addToCart = async () => {
+    Loading.standard('Loading...')
     try {
       const response = await axios.post(
         addToCartUrl,
@@ -31,6 +33,7 @@ const ItemModal = ({ item, onClose }) => {
         }
       );
 
+      Loading.remove();
       toast.success(<Msg />);
       // window.location.reload();
     } catch (err) {

@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import axios from "axios";
 import { GiShoppingCart } from "react-icons/gi";
 import Badge from "@mui/material/Badge";
+import { Loading } from 'notiflix/build/notiflix-loading-aio';
 import "./navbar.css";
 
 const Navbar = () => {
@@ -36,8 +37,10 @@ const Navbar = () => {
     }
   };
   const handleLogOut = () => {
+    Loading.standard('Loading...')
     localStorage.removeItem("token");
     setTokenExist(false);
+    Loading.remove(1500)
   };
 
   const handleToggle = () => {
