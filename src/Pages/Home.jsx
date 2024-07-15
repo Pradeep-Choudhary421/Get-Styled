@@ -4,6 +4,7 @@ import WoSection from "../Components/HomeSection/WomenSection/WoSection";
 import MenSection from "../Components/HomeSection/MensSection/MenSection";
 import KidSection from "../Components/HomeSection/Kids/KidSection";
 import Navbar from "../Components/Navbar/Navbar";
+import Footer from "../Components/Footer/Footer";
 const Home = () => {
   return (
     <>
@@ -12,6 +13,7 @@ const Home = () => {
       <WoSection />
       <MenSection />
       <KidSection />
+      <Footer/>
     </>
   );
 };
