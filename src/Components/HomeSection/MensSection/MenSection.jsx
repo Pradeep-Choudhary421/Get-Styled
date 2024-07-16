@@ -78,7 +78,7 @@ const MenSection = () => {
           </div>
         )}
         <div className="py-8 flex justify-center">
-          <button className="border-2 border-gray-600 p-2 cursor-pointer">
+          <button className="border-2 border-gray-600 p-2 cursor-pointer hover:bg-white duration-[500ms]">
             <Link to="/mens">Explore More</Link>
           </button>
         </div>

@@ -16,7 +16,10 @@ const Cart = () => {
     "https://get-styled-backend.onrender.com/order/addToCart";
 
   const increaseQt = async (itm) => {
-    Loading.standard('Loading...')
+    Loading.dots('Loading...',{
+      backgroundColor: 'rgba(0,0,0,0.8)',
+      svgColor: '#E3DDC3',
+      })
     if (localStorage.getItem("token") != null) {
       try {
         const response = await axios.post(
@@ -32,7 +35,7 @@ const Cart = () => {
             },
           }
         );
-        Loading.remove()
+        Loading.remove(2500)
         // toast.success("Quantity Increased");
         getItems();
       } catch (err) {
@@ -57,7 +60,7 @@ const Cart = () => {
             },
           }
         );
-        Loading.remove()
+        Loading.remove(2500)
         // toast.success("Quantity Decreased");
         getItems();
       } catch (err) {
