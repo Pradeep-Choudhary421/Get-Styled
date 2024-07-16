@@ -26,7 +26,7 @@ const App = () => {
   return (
     <BrowserRouter>
       <ToastContainer autoClose={1000} />
-      <Suspense fallback={<div>Loading...</div>}>
+      <Suspense fallback={<div className="flex justify-center align-middle items-center my-auto bg-gray-400 h-screen text-4xl">Loading...</div>}>
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/cart" element={<Cart />} />
