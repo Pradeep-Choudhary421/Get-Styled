@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import { toast } from "react-toastify";
-import { Loading } from 'notiflix/build/notiflix-loading-aio';
+import { Loading } from "notiflix/build/notiflix-loading-aio";
 import "react-toastify/dist/ReactToastify.css";
 const SignUp = () => {
   const [data, setData] = useState({
@@ -16,7 +16,10 @@ const SignUp = () => {
   const navigate = useNavigate();
 
   const createUser = () => {
-    Loading.standard('Loading...')
+    Loading.dots("Loading...", {
+      backgroundColor: "rgba(0,0,0,0.8)",
+      svgColor: "#E3DDC3",
+    });
     axios
       .post(url, data)
       .then(() => {
@@ -26,7 +29,7 @@ const SignUp = () => {
           phone_no: "",
           password: "",
         });
-        Loading.remove()
+        Loading.remove();
         toast.success("User created successfully");
         navigate("/login");
       })

@@ -2,7 +2,7 @@ import axios from "axios";
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
-import { Loading } from 'notiflix/build/notiflix-loading-aio';
+import { Loading } from "notiflix/build/notiflix-loading-aio";
 
 const UpdatePass = () => {
   const [pass, setPass] = useState(null);
@@ -14,7 +14,10 @@ const UpdatePass = () => {
 
   const resetPass = async (e) => {
     e.preventDefault();
-    Loading.standard('Loading...')
+    Loading.dots("Loading...", {
+      backgroundColor: "rgba(0,0,0,0.8)",
+      svgColor: "#E3DDC3",
+    });
     if (pass === confirmPass) {
       await axios
         .post(resetPassUrl, {
@@ -23,11 +26,11 @@ const UpdatePass = () => {
         })
         .then(() => {
           navigate("/login");
-          Loading.remove()
+          Loading.remove();
           toast.success("Password Updated Successfully");
         });
     } else {
-      Loading.remove()
+      Loading.remove();
       toast.warn("Password Does Not Match");
     }
   };

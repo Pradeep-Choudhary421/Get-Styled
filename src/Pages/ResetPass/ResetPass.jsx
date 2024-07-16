@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
-import { Loading } from 'notiflix/build/notiflix-loading-aio';
+import { Loading } from "notiflix/build/notiflix-loading-aio";
 import { toast } from "react-toastify";
 import Cookies from "js-cookie";
 
@@ -11,7 +11,10 @@ const ResetPass = () => {
   const otpSendUrl = "https://get-styled-backend.onrender.com/user/sendOtp";
   const sendOtp = async (e) => {
     e.preventDefault();
-    Loading.standard('Loading...')
+    Loading.dots("Loading...", {
+      backgroundColor: "rgba(0,0,0,0.8)",
+      svgColor: "#E3DDC3",
+    });
     try {
       await axios
         .post(otpSendUrl, {
@@ -19,14 +22,14 @@ const ResetPass = () => {
         })
         .then((res) => {
           // localStorage.setItem("otp", res.data.otp);
-          Cookies.set("otp",res.data.otp)
+          Cookies.set("otp", res.data.otp);
           localStorage.setItem("user", res.data.user.email);
           navigate("/verifyOtp");
-          Loading.remove()
+          Loading.remove();
           toast.success("Otp Sent");
         });
     } catch (err) {
-      Loading.remove()
+      Loading.remove();
       toast.error("Email Not Found");
     }
   };

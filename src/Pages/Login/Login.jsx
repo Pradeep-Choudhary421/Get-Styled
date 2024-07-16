@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
-import { Loading } from 'notiflix/build/notiflix-loading-aio';
+import { Loading } from "notiflix/build/notiflix-loading-aio";
 import axios from "axios";
 const Login = () => {
   const [data, setData] = useState({
@@ -11,7 +11,10 @@ const Login = () => {
   const url = "https://get-styled-backend.onrender.com/user/login";
   const navigate = useNavigate();
   const loginUser = () => {
-    Loading.standard('Loading...')
+    Loading.dots("Loading...", {
+      backgroundColor: "rgba(0,0,0,0.8)",
+      svgColor: "#E3DDC3",
+    });
     axios
       .post(url, data)
       .then((res) => {
@@ -22,11 +25,11 @@ const Login = () => {
         navigate("/");
         // console.log(res.data.token)
         localStorage.setItem("token", res.data.token);
-        Loading.remove()
+        Loading.remove();
         toast.success(res.data.message);
       })
       .catch((err) => {
-        Loading.remove()
+        Loading.remove();
         toast.error("Invalid Email or Password");
       });
   };

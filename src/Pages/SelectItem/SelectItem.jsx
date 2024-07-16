@@ -2,7 +2,7 @@ import React from "react";
 import axios from "axios";
 import { toast } from "react-toastify";
 import { Link, useNavigate } from "react-router-dom";
-import { Loading } from 'notiflix/build/notiflix-loading-aio';
+import { Loading } from "notiflix/build/notiflix-loading-aio";
 import { IoIosCloseCircleOutline } from "react-icons/io";
 const ItemModal = ({ item, onClose }) => {
   if (!item) return null;
@@ -19,7 +19,10 @@ const ItemModal = ({ item, onClose }) => {
   );
 
   const addToCart = async () => {
-    Loading.standard('Loading...')
+    Loading.dots("Loading...", {
+      backgroundColor: "rgba(0,0,0,0.8)",
+      svgColor: "#E3DDC3",
+    });
     try {
       const response = await axios.post(
         addToCartUrl,
@@ -50,7 +53,7 @@ const ItemModal = ({ item, onClose }) => {
         <div className="flex justify-end pb-4">
           <button onClick={onClose} className="text-2xl p-2">
             {/* X  */}
-          <IoIosCloseCircleOutline />
+            <IoIosCloseCircleOutline />
             {/* Close */}
           </button>
         </div>

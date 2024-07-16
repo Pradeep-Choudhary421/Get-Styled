@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
-import { Loading } from 'notiflix/build/notiflix-loading-aio';
+import { Loading } from "notiflix/build/notiflix-loading-aio";
 import Cookies from "js-cookie";
 
 const OtpVerify = () => {
@@ -9,16 +9,19 @@ const OtpVerify = () => {
   const navigate = useNavigate();
   const verifyOtp = (e) => {
     e.preventDefault();
-    Loading.standard('Loading...')
+    Loading.dots("Loading...", {
+      backgroundColor: "rgba(0,0,0,0.8)",
+      svgColor: "#E3DDC3",
+    });
     // const sentOtp = localStorage.getItem("otp");
-    const sentOtp = Cookies.get("otp") 
+    const sentOtp = Cookies.get("otp");
     if (otp === sentOtp) {
-      Loading.remove()
-      navigate("/updatePass")
-      toast.success("OTP Verified")
+      Loading.remove();
+      navigate("/updatePass");
+      toast.success("OTP Verified");
     } else {
-      Loading.remove()
-      toast.error("Invalid OTP")
+      Loading.remove();
+      toast.error("Invalid OTP");
     }
   };
   return (
@@ -31,21 +34,21 @@ const OtpVerify = () => {
                 <h2 class="text-3xl md:text-4xl font-bold">OTP Verification</h2>
               </div>
               <form action="" onSubmit={verifyOtp}>
-              <div class="flex flex-col max-w-md space-y-5">
-                <input
-                  onChange={(e) => setOtp(e.target.value)}
-                  type="text"
-                  placeholder="Enter OTP To Verify"
-                  required
-                  class="flex px-3 py-2 md:px-4 md:py-3 border-2 border-black rounded-lg font-medium placeholder:font-normal"
-                />
-                <button
-                type="submit"
-                  class="flex items-center justify-center flex-none px-3 py-2 md:px-4 md:py-3 border-2 rounded-lg font-medium border-black bg-black text-white"
-                >
-                  Verify OTP
-                </button>
-              </div>
+                <div class="flex flex-col max-w-md space-y-5">
+                  <input
+                    onChange={(e) => setOtp(e.target.value)}
+                    type="text"
+                    placeholder="Enter OTP To Verify"
+                    required
+                    class="flex px-3 py-2 md:px-4 md:py-3 border-2 border-black rounded-lg font-medium placeholder:font-normal"
+                  />
+                  <button
+                    type="submit"
+                    class="flex items-center justify-center flex-none px-3 py-2 md:px-4 md:py-3 border-2 rounded-lg font-medium border-black bg-black text-white"
+                  >
+                    Verify OTP
+                  </button>
+                </div>
               </form>
             </div>
           </div>
