@@ -3,6 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import { Loading } from 'notiflix/build/notiflix-loading-aio';
 import { toast } from "react-toastify";
+import Cookies from "js-cookie";
 
 const ResetPass = () => {
   const [email, setEmail] = useState("");
@@ -17,7 +18,8 @@ const ResetPass = () => {
           email: email,
         })
         .then((res) => {
-          localStorage.setItem("otp", res.data.otp);
+          // localStorage.setItem("otp", res.data.otp);
+          Cookies.set("otp",res.data.otp)
           localStorage.setItem("user", res.data.user.email);
           navigate("/verifyOtp");
           Loading.remove()

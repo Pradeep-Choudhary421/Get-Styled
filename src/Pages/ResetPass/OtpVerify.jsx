@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import { Loading } from 'notiflix/build/notiflix-loading-aio';
+import Cookies from "js-cookie";
 
 const OtpVerify = () => {
   const [otp, setOtp] = useState(null);
@@ -9,14 +10,15 @@ const OtpVerify = () => {
   const verifyOtp = (e) => {
     e.preventDefault();
     Loading.standard('Loading...')
-    const sentOtp = localStorage.getItem("otp");
+    // const sentOtp = localStorage.getItem("otp");
+    const sentOtp = Cookies.get("otp") 
     if (otp === sentOtp) {
-      navigate("/updatePass")
       Loading.remove()
+      navigate("/updatePass")
       toast.success("OTP Verified")
     } else {
       Loading.remove()
-        toast.error("Invalid OTP")
+      toast.error("Invalid OTP")
     }
   };
   return (
