@@ -10,8 +10,8 @@ const Home = () => {
     <>
       <Navbar />
       <Hero/>
-      <WoSection />
       <MenSection />
+      <WoSection />
       <KidSection />
       <Footer/>
     </>
