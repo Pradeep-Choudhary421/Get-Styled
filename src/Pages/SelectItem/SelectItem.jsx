@@ -49,7 +49,7 @@ const ItemModal = ({ item, onClose }) => {
 
   return (
     <div className="fixed inset-0 flex items-center justify-center z-50 bg-black bg-opacity-50">
-      <div className="p-16 mt-12 rounded shadow-lg mx-4 w-10/12 2xl:w-5/12 bg-white ">
+      <div className="px-4 sm:px-16 py-1 md:py-6  rounded shadow-lg mx-4 w-10/12 2xl:w-5/12 bg-white ">
         <div className="flex justify-end pb-4">
           <button onClick={onClose} className="text-2xl p-2">
             {/* X  */}
@@ -57,11 +57,11 @@ const ItemModal = ({ item, onClose }) => {
             {/* Close */}
           </button>
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-2 border-2 justify-center gap-12 p-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 border-2 justify-center gap-2 md:gap-12 p-4">
           <div>
             <img className="" src={item.ProductImage} alt={item.ProductName} />
           </div>
-          <div className="py-4 pr-4">
+          <div className="py-1 md:py-4 pr-4">
             <h2 className="text-2xl">{item.ProductName}</h2>
             <p className="text-lg mt-2">{item.ProductDescription}</p>
             <p className="text-lg mt-4">RS. {item.ProductPrice}</p>
